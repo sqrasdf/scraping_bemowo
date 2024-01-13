@@ -3,7 +3,7 @@ import requests
 import pyperclip
 
 link_list = [
-    "https://www.olx.pl/oferty/q-mieszkania-bemowo/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1000&search%5Bfilter_float_price:to%5D=3000",
+    "https://www.olx.pl/nieruchomosci/mieszkania/q-mieszkanie-bemowo/?search%5Bfilter_float_price%3Afrom%5D=1000&search%5Bfilter_float_price%3Ato%5D=3000&search%5Border%5D=created_at%3Adesc",
 ]
 
 # read previous data from txt file
@@ -27,11 +27,16 @@ for link in link_list:
         offer_link = "https://www.olx.pl" + offer_link
         offer_id = offer.get("id")
         if offer_id not in offers_past:
-            print(offer_id)
+            print(offer_id, offer_link)
 
 
         offers_now.append(offer_id)
+        
+offers_now = list(set(offers_now))
+offers_now.sort()
 
+print("offers_now:", len(offers_now))
+print("offers_now set:", len(set(offers_now)))
 
 file = open("file.txt", "w")
 for offer in offers_now:

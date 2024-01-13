@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 link_list = [
-    "https://www.olx.pl/nieruchomosci/q-mieszkanie-bemowo/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1000&search%5Bfilter_float_price:to%5D=3000",
+    "https://www.olx.pl/nieruchomosci/mieszkania/q-mieszkanie-bemowo/?search%5Bfilter_float_price%3Afrom%5D=1000&search%5Bfilter_float_price%3Ato%5D=3000&search%5Border%5D=created_at%3Adesc",
 ]
 
 bad_words = [
@@ -58,6 +58,9 @@ for link in link_list:
 
             offers_now.append(offer_id)
 
+offers_now = offers_now + offers_past
+offers_now = list(set(offers_now))
+offers_now.sort()
 file = open("file.txt", "w")
 for offer in offers_now:
     file.write(offer + "\n")
