@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 link_list = [
-    "https://www.olx.pl/oferty/q-mieszkania-bemowo/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1000&search%5Bfilter_float_price:to%5D=3000",
+    "https://www.olx.pl/nieruchomosci/q-mieszkanie-bemowo/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1000&search%5Bfilter_float_price:to%5D=3000",
 ]
 
 bad_words = [
